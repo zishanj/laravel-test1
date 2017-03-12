@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('product');
+});
+
+Route::group(array('prefix' => 'api'), function() {
+
+    Route::resource('products', 'ProductController', 
+        array('only' => array('index', 'store')));
+  
 });
